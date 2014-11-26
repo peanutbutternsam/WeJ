@@ -1,0 +1,11 @@
+<div class="navigation">
+  <nav class="icon-nav navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <% if current_user != nil %>
+      <%= erb :_header_logged_in %>
+    <% else %>
+    <%= erb :_header_logged_out %>
+    <% end %>
+
+
+  </nav>
+</div>

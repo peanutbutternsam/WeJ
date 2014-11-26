@@ -1,0 +1,15 @@
+
+
+
+<div class="collaborators jumbotron jumbo3">
+  <div class="span3">
+    <h2 class="collab-header">My Playlists</h2>
+  <ul class="collab-names">
+
+  <% @user.playlists.each do |playlist| %>
+    <a href="/playlist/<%= playlist.id %>">
+      <li id="<%= playlist.id %>" class="change-playlist"><%= playlist.title %></li></a>
+  <% end %>
+  </ul>
+  </div>
+</div>

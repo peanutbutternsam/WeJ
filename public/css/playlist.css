@@ -1,0 +1,103 @@
+.jumbo3 {
+  height: auto;
+  width: 400px;
+  margin: 32px auto;
+  padding: 0 0;
+}
+
+
+li.song-row {
+  border-bottom: 1px solid gray;
+  margin: 20px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+
+li.highlighted {
+  border-bottom: 1px solid gray;
+  margin: 20px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: blue;
+  padding-left: 10px;
+}
+
+#artist {
+  color: white;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+
+#img-container {
+  margin: 0 auto;
+}
+
+img {
+  margin-left: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#buttons {
+  height: 50px;
+  width: 220px;
+  margin: 0px auto;
+}
+
+#buttons > li {
+  height: 100px;
+  width: 50px;
+  /*display: inline-block;*/
+  margin: 0px 11px;
+}
+
+#play-pause {
+  display: inline-block;
+}
+
+#rewind {
+  background-image: url('rewind.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px 0px;
+  display: inline-block;
+}
+
+.pause {
+  background-image: url('pauseit.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px 0px;
+  display: inline-block;
+}
+
+.play {
+  background-image: url('play.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px 0px;
+  display: inline-block;
+}
+
+#fast-forward {
+  background-image: url('fast-forward.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px 0px;
+  display: inline-block;
+}
+
+.body_login {
+  /*background-image: url('swim.png');*/
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px -84px;
+}

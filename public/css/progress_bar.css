@@ -1,0 +1,38 @@
+#content {
+    width: 380px;
+    /* Full Width */
+  height: 5px;
+  margin: 10px auto;
+  background: #000;
+}
+
+.expand {
+    width: 380px;
+    height: 1px;
+    margin: 2px 0;
+    background: #21E767;
+    position: absolute;
+    box-shadow: 0px 0px 10px 1px rgba(0,198,255,0.7);
+    -moz-animation: fullexpand 10s ease-out;
+    -webkit-animation: fullexpand 300s ease-out;
+}
+
+/* Full Width Animation Bar */
+@-moz-keyframes fullexpand {
+    0%  { width: 0px;
+}
+
+100% {
+    width: 380px;
+}
+}
+
+@-webkit-keyframes fullexpand {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 380px;
+    };
+}

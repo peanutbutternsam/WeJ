@@ -1,0 +1,76 @@
+.navigation {
+  background-repeat: no-repeat;
+  margin: 20px;
+  margin-right: 10px;
+}
+
+.icon-nav {
+  background-image: url('headphones.png');
+  background-repeat: no-repeat;
+  background-position: 10px -2px;;
+}
+
+
+.body_login {
+  /*background-image: url('swim.png');*/
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px -84px;
+}
+
+.terms {
+  padding-top: 10px;
+
+}
+
+label {
+  color: rgb(203, 203, 203);
+}
+
+.nav-pills {
+  margin-top: 5px;
+}
+
+
+#button {
+  margin-right: 10px;
+}
+
+.logo {
+  padding: 15px 200px;
+}
+
+.jumbotron {
+  width: 30%;
+  margin: 100px auto;
+  padding-top: 10px;
+  opacity: 0.9;
+  background-color: #101010;
+}
+
+.sign-up {
+  color: rgb(0, 143, 245);
+}
+
+.form-control {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+
+.footer > ul {
+  text-align: center;
+}
+
+.links {
+  display: inline-block;
+  color:white;
+
+  padding: 0px 20px;
+}
+

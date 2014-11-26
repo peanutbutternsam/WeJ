@@ -1,0 +1,161 @@
+.navigation {
+  padding-top: 10px;
+  margin: 20px;
+}
+
+body {
+  padding-top:30px;
+
+}
+
+.body_logged_in {
+  /*background-image: url('music.png');*/
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px -84px;
+}
+
+.nav-pills {
+  margin-top: 5px;
+}
+
+.nav-pills > li.logout {
+  float: right;
+}
+
+
+.user-infor-container {
+  margin: 10px 140px;
+}
+
+.user-info {
+  display: block;
+
+}
+
+
+.blog-posts {
+  float:left;
+  padding: 20px 20px;
+  width: 20%;
+  margin: 10px auto;
+}
+
+.jumbo2 {
+  padding: 10px;
+  margin-top: 32px;
+  float: left;
+  margin-left: 5%;
+  width: 36%;
+}
+
+.searchbtn {
+  margin-top: 10px;
+}
+
+.search-form {
+  background-color: #101010;
+  height: 55px;
+  font-size: 18px;
+  border: 1px solid rgb(18,18,18);
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 80%;
+  float: left;
+}
+
+.playlist-forms {
+  width: 58%;
+}
+
+.playlist-submit {
+  padding-bottom: 10px;
+  opacity: 0.9;
+  border-radius: 0;
+}
+
+.forms {
+  margin-top: 32px;
+}
+
+.user_legit_name {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.posts {
+  width: 100%;
+  margin: 10px auto;
+  border: 1px solid rgb(211, 210, 210);
+  border-radius: 4px;
+  padding-left: 37px;
+
+}
+
+.glyphicon-lg{font-size:3em}
+
+.twit-container {
+  float:right;
+  margin-top: 120px;
+  width:50%;
+}
+
+.profile-pic {
+  width: 70%;
+}
+
+.twit-container {
+  margin-right:20%;
+
+}
+
+.follower-info {
+  height: 50px;
+  border-bottom: 1px solid rgb(211, 210, 210);
+  width: 90%;
+  margin-top: 10px;
+}
+
+.follower-icons {
+  display: inline-block;
+  padding: 0px 30px;
+}
+
+.follower-icons > p {
+  text-align: center;
+}
+
+#center-icon {
+  border-right: 1px solid rgb(211, 210, 210);
+  border-left: 1px solid rgb(211, 210, 210);
+}
+
+.row {
+  margin-left: -25;
+}
+
+.collab-header {
+  color: white;
+  text-align: center;
+}
+
+.collaborators {
+  float: left;
+  color: white;
+  margin-top: 90px;
+}
+
+.collab-names {
+  padding-left: 50px;
+}
+
+.results {
+  background-color: black;
+  color: white;
+
+}
+/*#results-container {
+  background-color: black;
+  color: white;
+}
+*/
