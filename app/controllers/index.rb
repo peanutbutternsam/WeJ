@@ -91,6 +91,13 @@ post '/add_song' do
   {song: song}.to_json
 end
 
+post '/add_song_from_search/:title' do
+  song = Song.new(title: params[:title], playlist_id: session[:playlist_id])
+  song.save!
+  content_type :json
+  {song: song}.to_json
+end
+
 post '/find_song' do
   song = params[:song_title]
   content_type :json

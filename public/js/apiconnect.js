@@ -6,6 +6,7 @@ var currentIndex;
 var nextIndex;
 var nextSong;
 var startOver;
+var listedSearchResults;
 
 function clearSongs(playlist){
   children = $('.song-display').children();
@@ -16,7 +17,7 @@ function clearSongs(playlist){
 }
 
 function searchResults(song){
-  $.get('SC query and client ID', function (result) {
+  $.get('' + song + '&limit=5', function (result) {
     listOfObjs = result;
     listOfResults = [];
     for(var i = 0; i < listOfObjs.length; i++){
@@ -24,16 +25,23 @@ function searchResults(song){
     }
     console.log(listOfResults);
     printSearchResults(listOfResults);
+    listedSearchResults = listOfResults;
+    console.log("list of search results");
+    console.log(listedSearchResults);
   });
 }
+
+
 
 function printSearchResults(arrayOfResults){
   resultContainer = document.getElementById("results-container");
 
   for(var i = 0; i < arrayOfResults.length; i++){
+    song_index = i;
     song_title = listOfResults[i];
     var item = document.createElement("li");
     item.className ="result-titles";
+    item.id = song_index;
     item.innerHTML = song_title;
     resultContainer.appendChild(item);
   }
@@ -41,7 +49,7 @@ function printSearchResults(arrayOfResults){
 }
 
 function printSong(song){
-  $.get('SC query and client ID', function (result) {
+  $.get('' + song + '&limit=5', function (result) {
         listOfResults = result;
         songContainer = document.querySelector(".song-display");
         // song_id = listOfResults[0].id;
@@ -74,11 +82,13 @@ function playSong(song){
         return;
   } else {
 
-  $.get('SC query and client ID', function (result) {
+  $.get('' + song + '&limit=5', function (result) {
 
       listOfResults = result;
       console.log(listOfResults);
       test = listOfResults[0];
+      console.log("sound duration");
+      console.log(result[0].duration);
       song_id = listOfResults[0].id;
       song_title = listOfResults[0].title;
       song_pic = listOfResults[0].artwork_url;
@@ -226,20 +236,29 @@ $(document).ready(function() {
       console.log(formData);
       getSearchResults(formData);
     });
+
     $('.add-song').on('click', function(e) {
       e.preventDefault();
       var formData = $(this).parent().serialize();
       addSong(formData);
+    });
 
-  });
 
-   $(document).on('click', '.change-playlist', function(e){
+    $(document).on('click', '.result-titles', function(e){
+      e.preventDefault();
+      resultID = (this.id);
+      songTitle = (listedSearchResults[resultID]);
+      addSongFromResults(songTitle);
+      $('#results-container').empty();
+    });
+
+    $(document).on('click', '.change-playlist', function(e){
       e.preventDefault();
       console.log("The playlistID");
       playlistID = (this.id);
       console.log(playlistID);
       switchPlaylist(playlistID);
-   });
+    });
   }
 
 });
@@ -281,6 +300,8 @@ function getSearchResults(formData) {
 
 /////// AJAX CALL ADD NEW SONG //////
 function addSong(formData) {
+  console.log("this is form data");
+  console.log(formData);
   $.ajax({
     url: '/add_song',
     type: 'POST',
@@ -299,6 +320,23 @@ function addSong(formData) {
       //   playSong(playlist[])
       // }
      });
+}
+
+
+function addSongFromResults(formData) {
+  $.ajax({
+    url: '/add_song_from_search/' + formData,
+    type: 'POST',
+    data: formData
+  }).done( function(formData) {
+    song = formData.song.title;
+    playlist.push(song);
+    toAdd = song;
+    addToPlaylist(toAdd);
+    if (playlist.length === 1){
+      playSong(playlist[0]);
+    }
+  });
 }
 
 /////// AJAX CALL LOAD SONGS //////
