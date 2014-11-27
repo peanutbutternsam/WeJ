@@ -14,6 +14,7 @@ gem 'thin'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
+gem 'twitter-bootstrap-rails' , '>= 2.1.6'
 
 gem 'rake'
 
