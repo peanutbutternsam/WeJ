@@ -14,12 +14,12 @@ gem 'thin'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
-gem 'twitter-bootstrap-rails' , '>= 2.1.6'
+gem 'sinatra-bootstrap', '~> 0.6.1'
 
 gem 'rake'
 
 gem 'shotgun'
-gem "rack-flash-session"
+
 
 group :test do
   gem 'faker'
