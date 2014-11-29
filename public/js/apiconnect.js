@@ -1,4 +1,5 @@
 // function findNextToPlay
+console.log(sam);
 var needStop = false;
 var numOfSongs; //3
 var lastIndex;
