@@ -1,5 +1,4 @@
 // function findNextToPlay
-console.log(sam);
 var needStop = false;
 var numOfSongs; //3
 var lastIndex;
@@ -154,6 +153,7 @@ function playSong(song){
 
 $(document).ready(function() {
 
+  console.log(sam);
   SC.initialize({
     client_id: ''
   });
