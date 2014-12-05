@@ -103,7 +103,7 @@ img {
 }
 
 .body_login {
-  /*background-image: url('swim.png');*/
+  background-image: url('swim.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0px -84px;
