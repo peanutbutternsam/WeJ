@@ -2,7 +2,7 @@
 get '/redirect_auth_url' do
   client_id = ENV["CLIENT_ID"]
   # client_id = "811933872220-hrmhkij0ati96vrn7v7v6qkjbv6vdqg7.apps.googleusercontent.com"
-  redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{client_id}&redirect_uri=http://dry-anchorage-3965.herokuapp.com/&scope=email&state=12345&approval_prompt=force"
+  redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{client_id}&redirect_uri=http://dry-anchorage-3965.herokuapp.com/logged_in&scope=email&state=12345&approval_prompt=force"
   # redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{ENV["CLIENT_ID"]}&redirect_uri=http://localhost:9393/logged_in&scope=email&state=12345&approval_prompt=force"
 end
 
