@@ -253,7 +253,7 @@ $(document).ready(function() {
     $('.add-friend').on('click', function(event) {
       event.preventDefault();
       console.log("hi");
-      var formData = $(this).parent().serialize();
+      var formData = $(this).parent().parent().serialize();
       console.log(formData);
       $('#friends ul').remove();
       addBuddy(formData, displayFriends);
@@ -317,6 +317,7 @@ $(document).ready(function() {
 
     $('.find-song').on('click', function(event) {
       event.preventDefault();
+      $('#results-container').slideUp('100').empty();
       var formData = $(this).parent().parent().serialize();
       var buttonParent = $(this).serialize();
       console.log(buttonParent);
@@ -367,6 +368,7 @@ function addBuddy(formData, callback) {
 }
 
 function loadBuddies(callback) {
+  console.log("inside loadBuddies");
   $.ajax({
     url: '/load_friends',
     type: 'GET',
@@ -381,6 +383,7 @@ function loadBuddies(callback) {
 
 /////// Switch Playlist //////
 function switchPlaylist(playlistID) {
+  console.log("inside switcher function");
   $.ajax({
     url: '/playlist/' + playlistID,
     type: 'GET'
@@ -394,7 +397,7 @@ function switchPlaylist(playlistID) {
         // playSong(playlist[1]);
         playSong(playlist[0]);
         console.log(playlist[0]);
-        // loadBuddies(displayFriends);
+        loadBuddies(displayFriends);
     }
      });
 }
@@ -444,9 +447,6 @@ function addSong(formData) {
         if (playlist.length === 1){
           playSong(playlist[0]);
         }
-      // } else if (playlist.length > 1){
-      //   playSong(playlist[])
-      // }
      });
 }
 

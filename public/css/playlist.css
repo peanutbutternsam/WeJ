@@ -7,6 +7,11 @@
   opacity: 0.9;
 }
 
+.playlists-list {
+  margin-top: 100px;
+  width: 429px;
+}
+
 
 li.song-row {
   border-bottom: 1px solid gray;
@@ -102,4 +107,9 @@ img {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0px -84px;
+}
+
+.playlist-members {
+  padding-top: 30px;
+  padding-bottom: 20px;
 }

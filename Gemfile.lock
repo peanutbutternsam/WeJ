@@ -26,6 +26,7 @@ GEM
       xpath (~> 2.0)
     daemons (1.1.9)
     diff-lcs (1.2.5)
+    dotenv (1.0.2)
     eventmachine (1.0.3)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -99,6 +100,7 @@ DEPENDENCIES
   activesupport (~> 4.1)
   bcrypt
   capybara
+  dotenv
   faker
   httparty
   pg

@@ -48,3 +48,9 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+begin
+  require 'dotenv'
+  Dotenv.load(".env.#{ENV['RACK_ENV']}", ".env")
+rescue LoadError
+end

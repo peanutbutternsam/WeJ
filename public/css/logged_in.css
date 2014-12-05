@@ -10,13 +10,16 @@ body {
 
 
 #friends {
-  height: 100px;
-  background-color: black;
+  width: 429px;
+  margin: 32px auto;
+  background-color: #101010;
+  opacity: 0.9;
   color: white;
+  text-align: center;
 }
 
 .body_logged_in {
-  /*background-image: url('music.png');*/
+  background-image: url('music.png');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0px -84px;
@@ -144,6 +147,7 @@ body {
 .collab-header {
   color: white;
   text-align: center;
+  padding-top: 30px;
 }
 
 .collaborators {
@@ -154,6 +158,8 @@ body {
 .collab-names {
   padding-left: 50px;
 }
+
+
 
 .results {
   background-color: #101010;
@@ -182,8 +188,10 @@ body {
 .result-titles:hover {
   color: #21E767;
 }
-/*#results-container {
-  background-color: black;
-  color: white;
+#results-container {
+  padding-left: 25px;
 }
-*/
+
+.song-finder-title {
+  padding-left: 15px;
+}
