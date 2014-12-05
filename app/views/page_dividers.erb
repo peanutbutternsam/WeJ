@@ -1,4 +1,8 @@
 <div class='col-lg-4 playlist'>
+  <%= erb :_playlist_manager %>
+  <%= erb :_search_results %>
+</div>
+<div class='col-lg-4 playlist'>
   <%= erb :_playlist %>
 
   <div id="player"></div>
@@ -6,15 +10,14 @@
    <ul id="results">
 
    </ul>
+  <%= erb :_collaborators %>
+  <div id="friends"></div>
 
 </div>
+
 <div class='col-lg-4 playlist forms'>
   <%= erb :_playlist_forms %>
-  <%= erb :_collaborators %>
   <%= erb :_list_of_playlists %>
-</div>
-<div class='col-lg-4 playlist forms'>
-  <%= erb :_search_results %>
 </div>
 
 </div>

@@ -1,0 +1,37 @@
+.playlist-manager {
+  height: 70px;
+  color: white;
+  border-bottom: 5px solid #101010;
+}
+
+.playlist-manager-container {
+  opacity: 0.9;
+  background-color: #101010;
+  margin: 32px auto;
+}
+
+.add-playlist {
+  background-image: url('new-playlist.png');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: 50% 50%;
+
+}
+
+.clickers:hover {
+  border-bottom: 5px solid #84bd00;
+}
+
+.new-friend {
+  background-image: url('add-friend.png');
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position: 50% 50%;
+}
+
+.search-songs {
+  background-image: url('add-song.png');
+  background-repeat: no-repeat;
+  background-size: 33%;
+  background-position: 50% 50%;
+}

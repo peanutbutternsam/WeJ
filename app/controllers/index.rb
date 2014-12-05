@@ -2,7 +2,7 @@
 
 get '/' do
   if session[:user_id] != nil
-    erb :home
+    redirect "/home/#{current_user.id}"
   else
   redirect '/loginsignup'
   end
@@ -53,6 +53,7 @@ get '/playlist/:id' do
   @playlist = Playlist.find_by(id: params[:id] )
   p @playlist
   session[:playlist_id] = @playlist.id
+  p current_playlist.title
   @playlist_songs = @playlist.songs
   @songs = []
   @playlist_songs.each do |song|
@@ -84,6 +85,25 @@ post '/new_playlist' do
   redirect "/home/#{current_user.id}"
 end
 
+post '/playists/new' do
+  playlist = Playlist.new(title: params[:title])
+  playlist.save
+  session[:playlist_id] = playlist.id
+  current_user.playlists << playlist
+  content_type :json
+
+end
+
+
+# post '/new_playlist' do
+#   playlist = Playlist.new(title: params[:title])
+#   playlist.save
+#   session[:playlist_id] = playlist.id
+#   current_user.playlists << playlist
+#   puts current_user.playlists
+#   redirect "/home/#{current_user.id}"
+# end
+
 post '/add_song' do
   song = Song.new(title: params[:title], playlist_id: session[:playlist_id])
   song.save!
@@ -108,11 +128,27 @@ post '/add_friend' do
   @friend = User.find_by(username: params[:username])
   playlist_id = session[:playlist_id]
   playlist = Playlist.find_by(id: playlist_id)
-  p @friend
-  p playlist
   @friend.playlists << playlist
   redirect "/home/#{current_user.id}"
 end
+
+get '/load_friends' do
+  @playlist = Playlist.find_by(id: session[:playlist_id])
+  @friends = @playlist.users
+  erb :"_friend_names", layout: false
+end
+
+#new thing test
+get '/friends' do
+  @friend = User.find_by(username: params[:username])
+  playlist_id = session[:playlist_id]
+  playlist = Playlist.find_by(id: playlist_id)
+  @friend.playlists << playlist
+  @friends = playlist.users
+  erb :"_friend_names", layout: false
+end
+
+# end of test
 
 get '/logout' do
   session[:user_id] = nil

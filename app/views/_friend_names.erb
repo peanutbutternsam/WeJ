@@ -1,0 +1,6 @@
+<h2><%= current_playlist.title %> Members</h2>
+<ul>
+  <% @friends.each do |friend| %>
+    <li><%= friend.username %></li>
+  <% end %>
+</ul>

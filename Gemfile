@@ -15,6 +15,7 @@ gem 'thin'
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 gem 'sinatra-bootstrap', '~> 0.6.1'
+gem 'httparty'
 
 gem 'rake'
 

@@ -29,12 +29,16 @@ GEM
     eventmachine (1.0.3)
     faker (1.4.3)
       i18n (~> 0.5)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     json (1.8.1)
     mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     pg (0.17.1)
@@ -96,6 +100,7 @@ DEPENDENCIES
   bcrypt
   capybara
   faker
+  httparty
   pg
   rack-test
   rake

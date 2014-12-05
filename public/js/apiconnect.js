@@ -8,6 +8,9 @@ var nextSong;
 var startOver;
 var listedSearchResults;
 
+var songKey = 'http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=';
+var client = '5fac89a005124d747e2d1b1fc44cc474';
+
 function clearSongs(playlist){
   children = $('.song-display').children();
   for(var i = 0; i < children.length; i++){
@@ -16,8 +19,12 @@ function clearSongs(playlist){
    makePlaylist(playlist);
 }
 
+  function displayFriends(data){
+    $('#friends').html(data);
+  }
+
 function searchResults(song){
-  $.get('' + song + '&limit=5', function (result) {
+  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
     listOfObjs = result;
     listOfResults = [];
     for(var i = 0; i < listOfObjs.length; i++){
@@ -26,8 +33,6 @@ function searchResults(song){
     console.log(listOfResults);
     printSearchResults(listOfResults);
     listedSearchResults = listOfResults;
-    console.log("list of search results");
-    console.log(listedSearchResults);
   });
 }
 
@@ -36,20 +41,24 @@ function searchResults(song){
 function printSearchResults(arrayOfResults){
   resultContainer = document.getElementById("results-container");
 
+
   for(var i = 0; i < arrayOfResults.length; i++){
     song_index = i;
     song_title = listOfResults[i];
     var item = document.createElement("li");
     item.className ="result-titles";
     item.id = song_index;
-    item.innerHTML = song_title;
+    console.log(item);
+    console.log(song_title);
+    item.innerHTML = " + " + song_title;
     resultContainer.appendChild(item);
   }
+  console.log("inside printer");
 
 }
 
 function printSong(song){
-  $.get('' + song + '&limit=5', function (result) {
+  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
         listOfResults = result;
         songContainer = document.querySelector(".song-display");
         // song_id = listOfResults[0].id;
@@ -82,7 +91,7 @@ function playSong(song){
         return;
   } else {
 
-  $.get('' + song + '&limit=5', function (result) {
+  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
 
       listOfResults = result;
       console.log(listOfResults);
@@ -152,15 +161,25 @@ function playSong(song){
 }
 
 $(document).ready(function() {
-
-  console.log(sam);
   SC.initialize({
-    client_id: ''
+    client_id: '5fac89a005124d747e2d1b1fc44cc474'
   });
+
+  $('.friend-form').hide();
+  $('.results').hide();
+  $('.playlist-form').show();
+
+  addFriendShowing = false;
+  newPlaylistShowing = true;
+  searchShowing = false;
+
+
+
 
   window.onload = function(e){
     e.preventDefault();
     loadPlaylist();
+
   };
 
   bindEvents();
@@ -195,7 +214,9 @@ $(document).ready(function() {
     e.stopPropagation();
     needStop = true;
     soundManager.stopAll();
+    console.log(currentIndex);
     nextIndex = currentIndex + 1; //1
+    console.log(nextIndex);
     nextSong = playlist[nextIndex];
     startOver = playlist[0];
 
@@ -228,41 +249,134 @@ $(document).ready(function() {
 
 
 
-
-
   function bindEvents() {
-    $('.find-song').on('click', function(event) {
+    $('.add-friend').on('click', function(event) {
       event.preventDefault();
+      console.log("hi");
       var formData = $(this).parent().serialize();
       console.log(formData);
+      $('#friends ul').remove();
+      addBuddy(formData, displayFriends);
+    });
+
+    // $('.create-playlist').on('click', function(event){
+    //   event.preventDefault();
+    //   console.log("hi");
+    //   var formData = $(this).parent().serialize();
+    //   console.log(formData);
+    //   getEmptyPlaylist(formData);
+    // });
+
+
+    $('.new-friend').on('click', function(){
+      console.log("new friend clicked");
+      $('.results').fadeOut();
+      $('.playlist-form').fadeOut();
+      searchShowing = false;
+      newPlaylistShowing = false;
+      if(addFriendShowing){
+        $('.friend-form').fadeOut();
+        addFriendShowing = false;
+      } else {
+        $('.friend-form').delay(400).fadeIn();
+        addFriendShowing = true;
+      }
+
+    });
+
+    $('.add-playlist').on('click', function(){
+      $('.results').fadeOut();
+      $('.friend-form').fadeOut();
+      searchShowing = false;
+      addFriendShowing = false;
+      if(newPlaylistShowing){
+        $('.playlist-form').fadeOut();
+        newPlaylistShowing = false;
+      } else {
+        $('.playlist-form').delay(400).fadeIn();
+        newPlaylistShowing = true;
+      }
+
+    });
+
+    $('.search-songs').on('click', function(){
+      console.log("hi");
+      $('.friend-form').fadeOut();
+      $('.playlist-form').fadeOut();
+      newPlaylistShowing = false;
+      addFriendShowing = false;
+      if(searchShowing){
+        $('.results').fadeOut();
+        searchShowing = false;
+      } else {
+        $('.results').delay(400).fadeIn();
+        searchShowing = true;
+      }
+
+    });
+
+    $('.find-song').on('click', function(event) {
+      event.preventDefault();
+      var formData = $(this).parent().parent().serialize();
+      var buttonParent = $(this).serialize();
+      console.log(buttonParent);
+      console.log("FORM DATA HERE!");
+      console.log(formData);
       getSearchResults(formData);
+      $('#results-container').slideDown('100');
     });
 
-    $('.add-song').on('click', function(e) {
-      e.preventDefault();
-      var formData = $(this).parent().serialize();
-      addSong(formData);
-    });
+    // $('.add-song').on('click', function(event) {
+    //   event.preventDefault();
+    //   var formData = $(this).parent().serialize();
+    //   addSong(formData);
+    // });
 
 
-    $(document).on('click', '.result-titles', function(e){
-      e.preventDefault();
+
+    $(document).on('click', '.result-titles', function(event){
+      event.preventDefault();
       resultID = (this.id);
       songTitle = (listedSearchResults[resultID]);
       addSongFromResults(songTitle);
-      $('#results-container').empty();
+      $('#results-container').slideUp('100').empty();
     });
 
-    $(document).on('click', '.change-playlist', function(e){
-      e.preventDefault();
+    $(document).on('click', '.change-playlist', function(event){
+      event.preventDefault();
       console.log("The playlistID");
       playlistID = (this.id);
       console.log(playlistID);
       switchPlaylist(playlistID);
     });
+
+
   }
 
 });
+
+function addBuddy(formData, callback) {
+  $.ajax({
+    url: '/friends',
+    data: formData,
+    success: callback
+  }).done(function(serverData){
+    console.log(serverData);
+    callback(serverData);
+  });
+}
+
+function loadBuddies(callback) {
+  $.ajax({
+    url: '/load_friends',
+    type: 'GET',
+    success: callback
+  }).done(function(serverData){
+    console.log(serverData);
+    callback(serverData);
+  });
+}
+
 
 
 /////// Switch Playlist //////
@@ -279,10 +393,22 @@ function switchPlaylist(playlistID) {
         soundManager.stopAll();
         // playSong(playlist[1]);
         playSong(playlist[0]);
+        console.log(playlist[0]);
+        // loadBuddies(displayFriends);
     }
      });
 }
 
+function getEmptyPlaylist(playlistName) {
+  $.ajax({
+    url: '/playlist/new',
+    type: 'POST',
+    data: playlistName
+  }).done( function(serverData){
+    console.log("inside ajax");
+    preparePlaylist(serverData);
+  });
+}
 
 //////// Get Search Results ////////
 function getSearchResults(formData) {
@@ -291,6 +417,7 @@ function getSearchResults(formData) {
     type: 'POST',
     data: formData
   }).done( function(serverData) {
+      console.log("sd works");
       console.log(serverData);
       song_to_search = serverData;
       console.log(song_to_search);
@@ -356,4 +483,21 @@ function loadPlaylist(){
     }
   });
 }
+
+function createPlaylist(){
+  $.ajax({
+    url: '/playlist',
+    type: 'GET',
+  }).done( function(data) {
+    playlist = data;
+    if (playlist.length > 0){
+      makePlaylist(data);
+
+      // playSong(playlist[1]);
+      playSong(playlist[0]);
+    }
+  });
+}
+
+
 

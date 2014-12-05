@@ -57,6 +57,11 @@ label {
   margin-bottom: 5px;
 }
 
+.find {
+  margin: 0px 0px;
+  padding:10px 0px;
+}
+
 .footer {
   position: absolute;
   bottom: 30px;

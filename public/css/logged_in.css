@@ -8,6 +8,13 @@ body {
 
 }
 
+
+#friends {
+  height: 100px;
+  background-color: black;
+  color: white;
+}
+
 .body_logged_in {
   /*background-image: url('music.png');*/
   background-repeat: no-repeat;
@@ -140,7 +147,6 @@ body {
 }
 
 .collaborators {
-  float: left;
   color: white;
   margin-top: 90px;
 }
@@ -150,9 +156,31 @@ body {
 }
 
 .results {
-  background-color: black;
+  background-color: #101010;
   color: white;
+  opacity: 0.9;
+  padding-top: 16px;
+}
 
+.friend-form {
+  background-color: #101010;
+  color: white;
+  opacity: 0.9;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.playlist-form {
+  background-color: #101010;
+  color: white;
+  opacity: 0.9;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+}
+
+.result-titles:hover {
+  color: #21E767;
 }
 /*#results-container {
   background-color: black;

@@ -1,10 +1,58 @@
 <div class="col-lg-12 results">
   <div class="span3">
+   <div class="col-lg-12">
+    <h2>Find a Song</h2>
+    <!-- <div class="input-group"> -->
+      <form class="input-group" action="/find_song" method="post">
+      <input type="text" name="song_title" class="form-control find">
+      <span class="input-group-btn">
+        <button type="submit" class="find-song btn btn-success" type="button">Go!</button>
+      </span>
+    </form>
+    <!-- </div> -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<div class="clearfix"></div>
     <h2>Search Results</h2>
 
     <ul id="results-container">
 
     </ul>
 
-  </div>
+</div>
+
+
+
+<div class="col-lg-12 friend-form">
+  <div class="span3">
+   <div class="col-lg-12">
+    <h2>Add Friends</h2>
+    <!-- <div class="input-group"> -->
+      <form class="playlist-submit input-group" action="/add_friend" method="post">
+      <input type="text" name="username" class="form-control find">
+      <span class="input-group-btn">
+        <button class="add-friend btn btn-success" type="button">Go!</button>
+      </span>
+    </form>
+    <!-- </div> -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</div>
+
+
+<div class="col-lg-12 playlist-form">
+  <div class="span3">
+   <div class="col-lg-12">
+      <h2>Create a Playlist</h2>
+
+    <!-- <div class="input-group"> -->
+      <form class="playlist-submit input-group" action="/new_playlist" method="post">
+      <input type="text" class="form-control find">
+      <span class="input-group-btn">
+        <button type="submit" class="create-playlist btn btn-success" type="button">Go!</button>
+      </span>
+    </form>
+    <!-- </div> -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
 </div>
