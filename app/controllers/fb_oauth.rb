@@ -30,9 +30,9 @@ get '/logged_in' do
   first_name = google_plus_response["name"]["givenName"]
   last_name = google_plus_response["name"]["familyName"]
   user_img = google_plus_response["image"]["url"]
-  email = google_plus_response["emails"].first["value"]
+  email_address = google_plus_response["emails"].first["value"]
 
-  @user = User.find_by(firstname: first_name)
+  @user = User.find_by(email: email_address)
     if @user
       session[:user_id] = @user.id
       current_user
@@ -40,7 +40,7 @@ get '/logged_in' do
         session[:playlist_id] = @playlist.id
       p @user
     else
-      @user = User.create(firstname: first_name, lastname: last_name, email: email, username: first_name)
+      @user = User.create(firstname: first_name, lastname: last_name, email: email_address, username: first_name)
       p @user.id
       session[:user_id] = @user.id
       p session[:user_id]
