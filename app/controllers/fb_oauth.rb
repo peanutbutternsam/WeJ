@@ -2,7 +2,7 @@
 get '/redirect_auth_url' do
   client_id = ENV["CLIENT_ID"]
   # client_id = "811933872220-hrmhkij0ati96vrn7v7v6qkjbv6vdqg7.apps.googleusercontent.com"
-  redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{client_id}&redirect_uri=http://localhost:9393/logged_in&scope=email&state=12345&approval_prompt=force"
+  redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{client_id}&redirect_uri=https://dry-anchorage-3965.herokuapp.com/loginsignup/logged_in&scope=email&state=12345&approval_prompt=force"
   # redirect "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=#{client_id}&redirect_uri=https://dry-anchorage-3965.herokuapp.com/logged_in&scope=email&state=12345&approval_prompt=force"
 
 end
@@ -18,7 +18,7 @@ get '/logged_in' do
                                       client_id: ENV["CLIENT_ID"],
                                       # client_secret: "Vybq5zHSNDwUlfaB6bV6kQGH",
                                       client_secret: ENV["CLIENT_SECRET"],
-                                      redirect_uri: "http://localhost:9393/logged_in", # what you specify in your developer console (this matches the route we are currently in)
+                                      redirect_uri: "https://dry-anchorage-3965.herokuapp.com/loginsignup/logged_in", # what you specify in your developer console (this matches the route we are currently in)
                                       grant_type: "authorization_code"
                                 })
 
