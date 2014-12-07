@@ -8,7 +8,7 @@ var nextSong;
 var startOver;
 var listedSearchResults;
 
-var songKey = 'http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=';
+var songKey = 'https://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=';
 var client = '5fac89a005124d747e2d1b1fc44cc474';
 
 function clearSongs(playlist){
@@ -24,7 +24,7 @@ function clearSongs(playlist){
   }
 
 function searchResults(song){
-  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
+  $.get('https://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
     listOfObjs = result;
     listOfResults = [];
     for(var i = 0; i < listOfObjs.length; i++){
@@ -58,7 +58,7 @@ function printSearchResults(arrayOfResults){
 }
 
 function printSong(song){
-  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
+  $.get('https://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
         listOfResults = result;
         songContainer = document.querySelector(".song-display");
         // song_id = listOfResults[0].id;
@@ -91,7 +91,7 @@ function playSong(song){
         return;
   } else {
 
-  $.get('http://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
+  $.get('https://api.soundcloud.com/tracks.json?client_id=4346c8125f4f5c40ad666bacd8e96498&q=' + song + '&limit=5', function (result) {
 
       listOfResults = result;
       console.log(listOfResults);
